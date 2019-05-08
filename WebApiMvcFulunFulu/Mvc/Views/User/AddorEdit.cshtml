@@ -1,0 +1,37 @@
+﻿@model Mvc.Models.mvcUserModel
+@{
+    ViewBag.Title = "AddorEdit";
+}
+
+<div class="form-body">
+    @using (Html.BeginForm())
+    {
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Surname)
+            @Html.EditorFor(model => model.Surname)
+            @Html.ValidationMessageFor(model => model.Surname)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn button" />
+            <input type="reset" value="Reset"  class="btn button" />
+            </div>
+
+    }
+
+
+
+</div>
+
+@section scripts{
+    
+    @Scripts.Render("~/bundles/jqueryval");
+    
+    }

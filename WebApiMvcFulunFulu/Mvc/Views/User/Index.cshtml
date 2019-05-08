@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Mvc.Models.mvcUserModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<p>
+    <a href="@Url.Action("AddOrEdit","User")">CREATE NEW</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname)
+        </td>
+        <td>
+            <a href="@Url.Action("AddorEdit","User",new { id= item.Id})" class="btn btn-default">EDIT</a>
+            <a onclick="Delete(@item.Id)" class="btn btn-default">DELETE</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@section scripts{
+<script>
+    function Delete (id)
+    {
+    window.location.href = '@Url.Action("Delete","User")/'+id;
+
+    }
+
+</script>
+    }
